@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --color-jungle: #0F3324;
+  --color-jungle-2: #164A34;
+  --color-leaf: #1F6B42;
+  --color-zest: #F2760F;
+  --color-zest-2: #D9640A;
+  --color-mango: #FFB627;
+  --color-pulp: #FFF6E8;
+  --color-pulp-2: #FCEBD4;
+  --color-ink: #201C16;
+  --color-ink-soft: #4A443B;
+  --color-watermelon: #E64A3B;
+
+  --font-display: "Fraunces", serif;
+  --font-body: "Manrope", sans-serif;
+  --font-hand: "Caveat", cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-pulp);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+::selection {
+  background: var(--color-mango);
+  color: var(--color-ink);
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-pulp); }
+::-webkit-scrollbar-thumb { background: var(--color-zest); border-radius: 10px; }
+
+.font-hand { font-family: var(--font-hand); }
+
+/* dashed marquee edge ticket look reused via utility */
+.ticket-notch {
+  -webkit-mask-image: radial-gradient(circle 9px at 30px 0, transparent 9px, black 9.5px), radial-gradient(circle 9px at 30px 100%, transparent 9px, black 9.5px);
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: radial-gradient(circle 9px at 30px 0, transparent 9px, black 9.5px), radial-gradient(circle 9px at 30px 100%, transparent 9px, black 9.5px);
+  mask-repeat: no-repeat;
+}
+
+.text-balance { text-wrap: balance; }
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
